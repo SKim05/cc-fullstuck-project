@@ -1,26 +1,43 @@
 import React, { useState, useEffect } from "react";
+import axios from 'axios'
+import Books from './Books'
+
+const baseUrl = import.meta.env.VITE_API_BASE_URL
 
 function App() {
-  const [message, setMessage] = useState('');
+  const [bookList, setBookList] = useState([]);
   useEffect(()=>{
-    fetch('/api/hello')
-      .then(response => response.json())
-      .then(data => setMessage(data.message));
-  })
+    try {
+      const fetchBooks = async () => {
+        const res = await axios.get('/api/books')
+        console.log(res.data[0].subtitle)
+        setBookList(res.data)
+      }
+      fetchBooks()
+    } catch (e){
+      console.log("error")
+    }
+
+  }, [])
 
   async function hello(){
-    fetch('/api/hello')
+    await axios.get('/api/hello')
       .then(response => response.json())
-      .then(data => setMessage(data.message));
+      .then(data => setBookList(data.message));
   }
 
   return (
+    <>
     <div className="App">
       <header className="App">
-        <p>{message}</p>
-        <p>AAAAA</p>
+        {JSON.stringify(bookList[0])}
+        
       </header>
+      <Books 
+        books={bookList}
+      />
     </div>
+    </>
   );
 }
 
