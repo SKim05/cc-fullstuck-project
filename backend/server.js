@@ -10,6 +10,7 @@ const setupExpressServer = () => {
 
   app.use(express.json());
 
+  const knex = require('./db/knex')
 
   // GET /teapot - modifying status:418
   app.get("/teapot", (req, res) => {
@@ -20,11 +21,18 @@ const setupExpressServer = () => {
   // GET /hello - world
   app.get("/api/hello", (req, res) => {
     //リクエストが来たときの処理
-    res.json({message: "Hello from the server!"})
+    res.json({message: "Hello from the server!!"})
   });
 
-  app.get("/api/test", (req, res) => {
-    res.send("TEST")
+  app.get('/api/books', async (req, res) => {
+    try {
+      const books = await knex('books').select('*')
+      console.log(books)
+      res.status(200).json(books)
+    } catch (err) {
+      console.log(err.stack)
+      res.status(500).json({ error: 'Failed to get books' })
+    }
   })
   
   /* return configured express app */
