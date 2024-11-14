@@ -1,0 +1,95 @@
+ul {
+    display: flex;
+    justify-content: center;
+  }
+
+li {
+    list-style: none;
+  }
+
+li:nth-child(2) {
+margin: 0 50px;
+}
+
+
+  /* 以下モーダル */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.modal-content {
+  /* 位置の固定 */
+  position: fixed;
+  position: absolute;
+  display: flex;
+
+  /* 中央表示 */
+  top: 50%;
+  left: 50%;
+
+  /* 大きさ */
+  max-width: 1000px;
+  width: 86%;
+
+  max-height: 1000px;
+  height: 86%;
+
+  /* 背景色や透過 */
+  padding: 15px 20px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+.modal-content img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+
+.square_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin: auto;
+  display: block;
+  
+  width: 30px;
+  height: 30px;
+  background: #333; /* ボタンの背景色 */
+  
+}
+ 
+.square_btn::before, .square_btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 25px;
+  background: #fff; /* バツ印の色 */
+}
+ 
+.square_btn::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+ 
+.square_btn::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+#book-info{
+  width: 30%;
+  background-color: white;
+  }
+#chat{
+  width: 70%;
+  background-color: whitesmoke;
+  padding: 10px;
+  }
