@@ -2,7 +2,7 @@
 import SingleView from "./SingleView";
 
 export default function Books(props){
-    const {books, isSingleView, setIsSingleView, onClick, setselectedBook, selectedBook} = props;
+    const {books, isSingleView, setIsSingleView, setselectedBook, selectedBook} = props;
     
     const handleOpen = (book) => {
         setIsSingleView(true);
@@ -16,34 +16,34 @@ export default function Books(props){
 
     return (
         <>
-        <ul className="list">
-            {books.length
-                ? books.map((book) => {
-                    return (
-                        <>
-                        <li><img
-                                src={book.url}
-                                alt={book.id}
-                                onClick={()=>{
-                                    handleOpen(book)
-                                }}
-                                
-                            />
-                        </li>
-                        </>
-                    )
-                }): 'No Books'}
-
-                {isSingleView && (
+        <div className="grid-images">
+        {books.length
+            ? books.map((book) => {
+                return (
                     <>
-                    <SingleView
-                        selectedBook = {selectedBook}
-                        handleClose = {handleClose}
-                    />
+                    
+                        <img
+                            src={book.url}
+                            alt={book.id}
+                            onClick={()=>{
+                                handleOpen(book)
+                            }}                               
+                        />                            
+                    
                     </>
-                )}
+                )
+            }): 'No Books'}
+        </div>
+            
 
-        </ul>
+            {isSingleView && (
+                <>
+                <SingleView
+                    selectedBook = {selectedBook}
+                    handleClose = {handleClose}
+                />
+                </>
+            )}
         </>
     )
 }

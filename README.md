@@ -12,8 +12,29 @@
 
 
 # DBの構成
-id
-volume
-subtitle
+## books
+- id
+- volume
+- subtitle
+- url
 
-npx knex migrate:down 20241114024645_create_todos_table.js
+## comments
+- id
+- volume
+- username
+- text
+- good
+
+## DBの削除
+npx knex migrate:down 20241115062211_create_books_table.js
+npx knex migrate:down 20241114234440_create_comments_table.js
+
+
+## DBのマイグレーション
+//npx knex migrate:make create_books_table
+//npx knex migrate:make create_comments_table
+npm run migrate
+
+## DBのseedの適用
+//npx knex seed:make initial_todos --timestamp-filename-prefix
+npm run seed
