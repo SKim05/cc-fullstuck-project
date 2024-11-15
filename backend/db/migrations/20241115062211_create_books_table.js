@@ -4,6 +4,7 @@ exports.up = function (knex) {
       table.increments('id').primary()
       table.string('volume').notNullable()
       table.string('subtitle').notNullable()
+      table.string('intro').notNullable()
       table.string('url').notNullable()
     })
   }

@@ -1,19 +1,49 @@
 
-export default function Books({books}){
+import SingleView from "./SingleView";
+
+export default function Books(props){
+    const {books, isSingleView, setIsSingleView, setselectedBook, selectedBook} = props;
+    
+    const handleOpen = (book) => {
+        setIsSingleView(true);
+        setselectedBook(book)
+      };
+    
+      const handleClose = () => {
+        setIsSingleView(false);
+        setselectedBook("");
+      };
+
     return (
         <>
-        <ul className="list">
-            {books.length
-                ? books.map((book) => {
-                    return (
-                        <>
-                        <img src={book.url} alt={book.id} />
-                        </>
+        <div className="grid-images">
+        {books.length
+            ? books.map((book) => {
+                return (
+                    <>
+                    
+                        <img
+                            src={book.url}
+                            alt={book.id}
+                            onClick={()=>{
+                                handleOpen(book)
+                            }}                               
+                        />                            
+                    
+                    </>
+                )
+            }): 'No Books'}
+        </div>
+            
 
-                    )
-                })
-                : 'No Books'}
-        </ul>
+            {isSingleView && (
+                <>
+                <SingleView
+                    selectedBook = {selectedBook}
+                    handleClose = {handleClose}
+                />
+                </>
+            )}
         </>
     )
 }

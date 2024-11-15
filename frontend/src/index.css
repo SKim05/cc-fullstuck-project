@@ -1,0 +1,221 @@
+body {
+  background-image: url("/background.png");
+  background-repeat: no-repeat;
+  background-size:  cover;
+  background-position: center;
+  font-weight: bold;
+}
+.logo-imgae {
+  width: 10%;
+  
+  
+}
+.logo-image img{
+  display: block;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 1000;
+  margin: auto;
+}
+
+.grid-images {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, auto);
+  grid-column-gap: 0px;
+  grid-row-gap: 40px;
+
+  margin-top: 10px;
+  margin-bottom: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.grid-images img {
+  width: 80%;
+  height: auto;
+  box-shadow: 0 10px 10px #666666;
+
+  border-radius: 1.5%;
+  transition: all 0.6s ease 0s;
+}
+
+.grid-images img:hover{
+  cursor: pointer;
+  transform: scale(1.1, 1.1);
+}
+
+  /* 以下モーダル */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.modal-content {
+  /* 位置の固定 */
+  position: fixed;
+  position: absolute;
+  display: flex;
+  
+
+  /* 中央表示 */
+  top: 50%;
+  left: 50%;
+
+  /* 大きさ */
+  max-width: 1000px;
+  width: 86%;
+
+  max-height: 1000px;
+  height: 86%;
+
+  /* 背景色や透過 */
+  padding: 15px 20px;
+  transform: translate(-50%, -50%);
+  background-color: white;
+}
+
+
+
+
+.square_btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin: auto;
+  display: block;
+  
+  width: 30px;
+  height: 30px;
+  background: #333; /* ボタンの背景色 */
+  
+}
+ 
+.square_btn::before, .square_btn::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3px;
+  height: 25px;
+  background: #fff; /* バツ印の色 */
+}
+ 
+.square_btn::before {
+  transform: translate(-50%,-50%) rotate(45deg);
+}
+ 
+.square_btn::after {
+  transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+#book-info{
+  width: 35%;
+  background-color: whitesmoke;
+  overflow: scroll;
+  margin-top: 10px;
+  margin-bottom: 33px;
+  border-radius: 1.5%;
+  }
+
+.left-area {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.left-area img{
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: 0 10px 10px #666666;
+}
+
+#chat{
+  width: 60%;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-bottom: 10px;
+  }
+
+.right-contents {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.chat-container {
+  flex:1;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.review-list {
+  flex: 9;
+  overflow: scroll;
+  margin: 10px;
+  background-color: rgb(248, 238, 238);
+  border-radius: 1.5%;
+	display: grid;
+	gap: 1px;
+	grid-template-columns: 1fr 2fr;
+  grid-template-rows: repeat(100, auto);
+}
+
+.chat-username {
+  margin: 25px;
+}
+
+.chat-text {
+  margin: 25px;
+}
+
+.no-comments {
+  margin: 25px;
+}
+
+#input-area {
+  resize: none;
+  width:100%;
+  height:60%;
+  box-sizing: border-box;
+  margin-bottom: 0px;
+  margin-right: 7px;
+  margin-left: 5px;
+  margin-top: 7px;
+  
+
+}
+
+textarea {
+  resize: none;
+  width:100%;
+  height:60%;
+  box-sizing: border-box;
+  padding: 0.5em 1em;
+  margin: 2em 0;
+  font-weight: bold;
+  border: solid 3px #000000;
+
+}
+#button-area{
+  align-self: flex-end;
+}
+
+#send-button{
+  width: 100%;
+  height: 113px;
+  margin-bottom: 33px;
+  border-radius: 10px;
+  font-weight: bold;
+  border: solid 3px #000000;
+
+}
+
